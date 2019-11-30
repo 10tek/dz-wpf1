@@ -27,18 +27,25 @@ namespace HW
 
         private void SearchBtnClick(object sender, RoutedEventArgs e)
         {
-            browserWB.Navigate(new Uri(urlTB.Text, UriKind.RelativeOrAbsolute));
-        }
-
-        private void AddBtnClick(object sender, RoutedEventArgs e)
-        {
-            //Пытался сделать независимую вкладку, типо 2разных сайта, не смог склонировать объект.
-            //как в структуре obj1 = obj2 и они 2 разных объекта.
-            tabControl.Items.Add(new TabItem
+            try
             {
-                Header = new TextBlock { Text = "Вкладка" },
-                Content = tabSP
-            });
+                var browser = new WebBrowser();
+                browser.Navigate(urlTB.Text);
+                
+                tabControl.Items.Add(new TabItem
+                {
+                    Height = 20,
+                    Width = 80,
+                    Header = "Вкладка",
+                    Content = (browser as WebBrowser)
+                });
+
+                urlTB.Text = "https://www.";
+            }
+            catch
+            {
+                MessageBox.Show("введите в формате https://google.com");
+            }
         }
     }
 }

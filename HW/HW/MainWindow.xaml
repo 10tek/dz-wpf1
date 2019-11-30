@@ -6,28 +6,16 @@
         xmlns:local="clr-namespace:HW"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-
-    <TabControl x:Name="tabControl" Grid.ColumnSpan="2">
-        <TabItem x:Name="firstTabItem" Header="Вкладка">
-            <StackPanel x:Name="tabSP" Height="410">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="60" ></ColumnDefinition>
-                        <ColumnDefinition Width="650" ></ColumnDefinition>
-                        <ColumnDefinition Width="90" ></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="300"/>
-                    </Grid.RowDefinitions>
-                    <WebBrowser x:Name="browserWB" Grid.ColumnSpan="3" Grid.Row="1"></WebBrowser>
-                    <TextBox x:Name="urlTB" Background="AliceBlue" Grid.Row="0" Grid.Column="1"/>
-                    <Button x:Name="searchBtn" Click="SearchBtnClick" Grid.Row="0" Grid.Column="2" Content="Поиск"/>
-                    <Button x:Name="addBtn" Click="AddBtnClick" Grid.Column="0" Grid.Row="0" Content="+" FontSize="20" Background="LightGray"/>
-                </Grid>
-            </StackPanel>
-        </TabItem>
-    </TabControl>
-
+    <Grid>
+        <TabControl x:Name="tabControl">
+            <TabItem x:Name="firstTabItem" Header="Главная страница">
+                <StackPanel x:Name="tabSP" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Введите URL адрес:"></Label>
+                    <TextBox Height="50" Width="300" FontSize="20" x:Name="urlTB" TextAlignment="Left" Text="https://www." Background="AliceBlue" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Button Height="30" x:Name="searchBtn" Click="SearchBtnClick" Content="Поиск"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
 
 </Window>
